@@ -1,0 +1,249 @@
+.projects {
+  padding: 5rem 2rem;
+  background-color: #FFFDF6;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.project-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #725CAD, #9b7fd1);
+  border-radius: 2px;
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(114, 92, 173, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(114, 92, 173, 0.2);
+}
+
+.project-img {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #725CAD 0%, #9b7fd1 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.project-img::after {
+  content: '🚀';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  z-index: 2;
+}
+
+/* Different icons for each project */
+.project-card:nth-child(1) .project-img::after {
+  content: '💼';
+}
+
+.project-card:nth-child(2) .project-img::after {
+  content: '🏢';
+}
+
+.project-card:nth-child(3) .project-img::after {
+  content: '📝';
+}
+
+.project-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin: 1.5rem 1.5rem 1rem 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover h3 {
+  color: #725CAD;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 1.5rem 2rem 1.5rem;
+}
+
+/* Hover effect for project image */
+.project-card:hover .project-img {
+  background: linear-gradient(135deg, #5d4a8f 0%, #725CAD 100%);
+}
+
+.project-card:hover .project-img::before {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Add a subtle pattern to project images */
+.project-img::before {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+  background-size: 30px 30px;
+}
+
+/* Animation for cards appearing */
+.project-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.3s; }
+.project-card:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add a "View Project" button that appears on hover */
+.project-card::after {
+  content: 'View Project';
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: #725CAD;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects {
+    padding: 3rem 1rem;
+  }
+  
+  .project-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .projects-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project-img {
+    height: 180px;
+  }
+  
+  .project-card h3 {
+    font-size: 1.2rem;
+    margin: 1.2rem 1.2rem 0.8rem 1.2rem;
+  }
+  
+  .project-card p {
+    margin: 0 1.2rem 1.5rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 2rem 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.8rem;
+  }
+  
+  .projects-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-img {
+    height: 160px;
+  }
+  
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .project-card p {
+    font-size: 0.9rem;
+  }
+}

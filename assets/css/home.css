@@ -1,0 +1,240 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFFDF6 0%, #f8f6ff 100%);
+  padding: 2rem;
+  margin-top: 80px; /* Account for fixed header */
+}
+
+.home-content {
+  text-align: center;
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.home-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.home-accent {
+  color: #725CAD;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.home-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #725CAD, #9b7fd1);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.home-accent:hover {
+  transform: scale(1.1) rotate(-2deg);
+  text-shadow: 0 4px 8px rgba(114, 92, 173, 0.3);
+}
+
+.home-accent:hover::after {
+  height: 4px;
+  bottom: -6px;
+  background: linear-gradient(90deg, #9b7fd1, #725CAD, #9b7fd1);
+  animation: shimmer 0.8s ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.home-content h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: #725CAD;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(114, 92, 173, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.home-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(114, 92, 173, 0.4);
+  background-color: #5d4a8f;
+}
+
+.home-btn:hover::before {
+  left: 100%;
+}
+
+/* Animation for content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .home {
+    padding: 1.5rem;
+  }
+  
+  .home-content h1 {
+    font-size: 3rem;
+  }
+  
+  .home-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .home-content p {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 1rem;
+    margin-top: 70px;
+    min-height: 90vh;
+  }
+  
+  .home-content {
+    max-width: 90%;
+  }
+  
+  .home-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .home-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .home-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  
+  .home-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .home-accent:hover {
+    transform: scale(1.05) rotate(-1deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding: 0.8rem;
+    margin-top: 60px;
+  }
+  
+  .home-content h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  
+  .home-content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .home-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.8rem;
+  }
+  
+  .home-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .home-accent::after {
+    height: 2px;
+    bottom: -3px;
+  }
+  
+  .home-accent:hover::after {
+    height: 3px;
+    bottom: -4px;
+  }
+}
+
+@media (max-width: 320px) {
+  .home-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .home-content h2 {
+    font-size: 1.1rem;
+  }
+  
+  .home-content p {
+    font-size: 0.95rem;
+  }
+  
+  .home-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
